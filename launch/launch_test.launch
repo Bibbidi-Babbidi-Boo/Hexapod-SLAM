@@ -1,0 +1,5 @@
+<launch>
+    <node name="cpgControl" pkg="xMonsterCPG"  type="test.py"/>
+    <node name="visual" pkg="xMonsterCPG" type="state_visualize.py"/>
+    <node name="window" pkg="rviz" type="rviz"/>
+</launch>

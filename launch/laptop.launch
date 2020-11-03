@@ -1,0 +1,3 @@
+<launch>
+    <node name="cpgControl" pkg="xMonsterCPG" output="screen" type="laptop.py"/>
+</launch>

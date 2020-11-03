@@ -1,0 +1,3 @@
+<launch>
+    <node name="cpgControl" pkg="xMonsterCPG"  output="screen" type="noFeed.py"/>
+</launch>
