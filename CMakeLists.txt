@@ -15,16 +15,12 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   sensor_msgs
-  tf2_sensor_msgs
   #opencv2
   cv_bridge
   #python-rospkg
 )
 
 find_package(OpenCV REQUIRED)
-find_package(octomap REQUIRED)
-include_directories(${OCTOMAP_INCLUDE_DIRS})
-link_libraries(${OCTOMAP_LIBRARIES})
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)

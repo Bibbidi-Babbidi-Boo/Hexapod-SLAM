@@ -2,7 +2,7 @@
 <launch>
 
   <!--Launch World-->
-  <include file="$(find xMonsterCPG)/launch/quickWorld.launch"/>
+  <include file="$(find xMonsterCPG)/launch/office_world.launch"/>
   <!--<include file="$(find aws_robomaker_small_house_world)/launch/small_house.launch">-->
 
   <!-- just to show the robot in the gazebo, no controller involved -->
@@ -40,28 +40,17 @@
     <remap from="/joint_states" to="/m6/joint_states" />
   </node> -->
  <node name= "control_cpg" pkg="xMonsterCPG" output="screen" type="laptop.py"/>
+ <!-- <node name= "align_rgb_depth" pkg="xMonsterCPG" output="screen" type="align_rgb_depth.py"/> -->
  <node name= "odom_publisher" pkg="xMonsterCPG" output="screen" type="odom_ground_truth_publish.py"/>
- <!-- <node name= "elevation_map_pointcloud" pkg="xMonsterCPG" output="screen" type="depth_map.py"/> -->
  <node name= "keyboard" pkg="xMonsterCPG" output="screen" type="keyboard_input.py"/>
+  <!--<node name= "image_processor" pkg="xMonsterCPG" output="screen" type="cvbridge_test.py"/>-->
+
+
   <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find xMonsterCPG)/rviz/rviz.rviz"/> -->
+
+
   <node pkg="tf" type="static_transform_publisher"  name="camera_color_to_color_out" args="0 0 0 0 0 0 realsense_d435_camera_color_optical_frame realsense_d435_cameracolor 100" />
 
   <node pkg="tf" type="static_transform_publisher"  name="camera_depth_to_depth_out" args="0 0 0 0 0 0 realsense_d435_camera_depth_optical_frame realsense_d435_cameradepth 100" />
-
-  <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
-    <param name="resolution" value="0.05" />
-    <param name="occupancy_max_z" value="0.3" />
-    <param name="base_frame_id" type="string" value="realsense_d435_camera_depth_optical_frame" />
-    <param name="frame_id" type="string" value="map" />
-    <param name="sensor_model/max_range" value="10.0" /> <!-- distance in the frame_id required-->
-    <remap from="cloud_in" to="/realsense_d435/depth/points" />
-    </node>
-
-  <!-- <node pkg="nodelet" type="nodelet" name="cloudify"
-        args="load depth_image_proc/point_cloud_xyz">
-    <remap from="image_rect" to="/realsense_d435/camera/depth/image_raw"/>
-    <remap from="points" to="/realsense_d435/camera/depth/points"/>
-    <remap from="camera_info" to="/realsense_d435/camera/depth/camera_info"/>
-  </node> -->
 
 </launch>

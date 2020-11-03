@@ -11,7 +11,7 @@ from Tools.PIDController import PIDController
 from CPG.updateCPGStance import *
 from CPG.laptopCPG import *
 # from CPG.noFeedCPG import *
-# from CPG.newCPG import *
+# from CPG.newCPG import *z
 import rospkg
 from sensor_msgs.msg import JointState
 from std_msgs.msg import Float64

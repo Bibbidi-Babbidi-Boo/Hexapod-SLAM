@@ -144,10 +144,10 @@ def CPG(cpg, t, dt):
     cpg['legs'][0, 0:18:3] = limitValue((cpg['nomOffset'][0, :] + cpg['shouldersCorr'] * xOut),
                                         pi / 2 * cpg['scaling'])  # x  make sure x is in the range of [-pi/2, pi/2]
     cpg['legs'][0, 1:19:3] = cpg['nomOffset'][1, :] + cpg['shouldersCorr'] * np.maximum(0, yOut)  # y
-    # print(cpg['legs'][0, 0:18:3])
+    print('aaaaaaaa',cpg['legs'][0, 0:18:3])
     # JOINT 3 - FOR WALKING TRIALS
     cpg['legs'][0, 0:18:3] = cpg['legs'][0, 0:18:3] / cpg['scaling']
-    # print(cpg['a'])
+    # print(cpg['legs'][0, 0:18:3])
     cpg['legs'][0, 1:19:3] = cpg['legs'][0, 1:19:3] / cpg['scaling']
 
     I = (np.logical_or(cpg['CPGStance'], dy < 0))  # the leg on the ground
